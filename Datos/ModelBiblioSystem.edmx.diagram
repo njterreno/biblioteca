@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="33f336414458460b9b6d676950880574" Name="Diagrama1">
+        <EntityTypeShape EntityType="BDBiblioSystemModel.Autor" Width="1.5" PointX="2.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDBiblioSystemModel.AutorXLibro" Width="1.5" PointX="5" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDBiblioSystemModel.Categoria" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDBiblioSystemModel.Editorial" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDBiblioSystemModel.Estado" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDBiblioSystemModel.Libro" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDBiblioSystemModel.LibroXPrestamo" Width="1.5" PointX="10.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDBiblioSystemModel.Localidad" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDBiblioSystemModel.Prestamo" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDBiblioSystemModel.Socio" Width="1.5" PointX="6" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDBiblioSystemModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDBiblioSystemModel.Ubicacion" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDBiblioSystemModel.Usuario" Width="1.5" PointX="5.75" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="BDBiblioSystemModel.FK_AutorXLibro_Autor" ManuallyRouted="false" />
+        <AssociationConnector Association="BDBiblioSystemModel.FK_Ejemplar_Categoria" ManuallyRouted="false" />
+        <AssociationConnector Association="BDBiblioSystemModel.FK_Ejemplar_Editorial" ManuallyRouted="false" />
+        <AssociationConnector Association="BDBiblioSystemModel.FK_Libro_Estado" ManuallyRouted="false" />
+        <AssociationConnector Association="BDBiblioSystemModel.FK_Socio_Estado" ManuallyRouted="false" />
+        <AssociationConnector Association="BDBiblioSystemModel.FK_Ejemplar_Ubicacion" ManuallyRouted="false" />
+        <AssociationConnector Association="BDBiblioSystemModel.FK_EjemplarXPrestamo_Prestamo" ManuallyRouted="false" />
+        <AssociationConnector Association="BDBiblioSystemModel.FK_Socio_Localidad" ManuallyRouted="false" />
+        <AssociationConnector Association="BDBiblioSystemModel.FK_Prestamo_Socio" ManuallyRouted="false" />
+        <AssociationConnector Association="BDBiblioSystemModel.FK_AutorXLibro_Libro" />
+        <AssociationConnector Association="BDBiblioSystemModel.FK_Prestamo_Estado" />
+        <AssociationConnector Association="BDBiblioSystemModel.FK_LibroXPrestamo_Libro" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,1006 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BDBiblioSystemModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="BDBiblioSystemModelStoreContainer">
+          <EntitySet Name="Autor" EntityType="BDBiblioSystemModel.Store.Autor" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AutorXEjemplar" EntityType="BDBiblioSystemModel.Store.AutorXEjemplar" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Casa Disquera" EntityType="BDBiblioSystemModel.Store.Casa Disquera" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Categoria" EntityType="BDBiblioSystemModel.Store.Categoria" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Editorial" EntityType="BDBiblioSystemModel.Store.Editorial" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Ejemplar" EntityType="BDBiblioSystemModel.Store.Ejemplar" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EjemplarXPrestamo" EntityType="BDBiblioSystemModel.Store.EjemplarXPrestamo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Estado" EntityType="BDBiblioSystemModel.Store.Estado" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Genero" EntityType="BDBiblioSystemModel.Store.Genero" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Localidad" EntityType="BDBiblioSystemModel.Store.Localidad" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Modalidad" EntityType="BDBiblioSystemModel.Store.Modalidad" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Prestamo" EntityType="BDBiblioSystemModel.Store.Prestamo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Socio" EntityType="BDBiblioSystemModel.Store.Socio" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="BDBiblioSystemModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tipo" EntityType="BDBiblioSystemModel.Store.Tipo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Ubicacion" EntityType="BDBiblioSystemModel.Store.Ubicacion" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Usuario" EntityType="BDBiblioSystemModel.Store.Usuario" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_AutorXEjemplar_Autor" Association="BDBiblioSystemModel.Store.FK_AutorXEjemplar_Autor">
+            <End Role="Autor" EntitySet="Autor" />
+            <End Role="AutorXEjemplar" EntitySet="AutorXEjemplar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AutorXEjemplar_Ejemplar" Association="BDBiblioSystemModel.Store.FK_AutorXEjemplar_Ejemplar">
+            <End Role="Ejemplar" EntitySet="Ejemplar" />
+            <End Role="AutorXEjemplar" EntitySet="AutorXEjemplar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejemplar_Casa Disquera" Association="BDBiblioSystemModel.Store.FK_Ejemplar_Casa Disquera">
+            <End Role="Casa Disquera" EntitySet="Casa Disquera" />
+            <End Role="Ejemplar" EntitySet="Ejemplar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejemplar_Categoria" Association="BDBiblioSystemModel.Store.FK_Ejemplar_Categoria">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Ejemplar" EntitySet="Ejemplar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejemplar_Editorial" Association="BDBiblioSystemModel.Store.FK_Ejemplar_Editorial">
+            <End Role="Editorial" EntitySet="Editorial" />
+            <End Role="Ejemplar" EntitySet="Ejemplar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejemplar_Estado" Association="BDBiblioSystemModel.Store.FK_Ejemplar_Estado">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="Ejemplar" EntitySet="Ejemplar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejemplar_Genero" Association="BDBiblioSystemModel.Store.FK_Ejemplar_Genero">
+            <End Role="Genero" EntitySet="Genero" />
+            <End Role="Ejemplar" EntitySet="Ejemplar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejemplar_Modalidad" Association="BDBiblioSystemModel.Store.FK_Ejemplar_Modalidad">
+            <End Role="Modalidad" EntitySet="Modalidad" />
+            <End Role="Ejemplar" EntitySet="Ejemplar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejemplar_Ubicacion" Association="BDBiblioSystemModel.Store.FK_Ejemplar_Ubicacion">
+            <End Role="Ubicacion" EntitySet="Ubicacion" />
+            <End Role="Ejemplar" EntitySet="Ejemplar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EjemplarXPrestamo_Ejemplar" Association="BDBiblioSystemModel.Store.FK_EjemplarXPrestamo_Ejemplar">
+            <End Role="Ejemplar" EntitySet="Ejemplar" />
+            <End Role="EjemplarXPrestamo" EntitySet="EjemplarXPrestamo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EjemplarXPrestamo_Prestamo" Association="BDBiblioSystemModel.Store.FK_EjemplarXPrestamo_Prestamo">
+            <End Role="Prestamo" EntitySet="Prestamo" />
+            <End Role="EjemplarXPrestamo" EntitySet="EjemplarXPrestamo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prestamo_Socio" Association="BDBiblioSystemModel.Store.FK_Prestamo_Socio">
+            <End Role="Socio" EntitySet="Socio" />
+            <End Role="Prestamo" EntitySet="Prestamo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Socio_Estado" Association="BDBiblioSystemModel.Store.FK_Socio_Estado">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="Socio" EntitySet="Socio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Socio_Localidad" Association="BDBiblioSystemModel.Store.FK_Socio_Localidad">
+            <End Role="Localidad" EntitySet="Localidad" />
+            <End Role="Socio" EntitySet="Socio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Socio_Tipo" Association="BDBiblioSystemModel.Store.FK_Socio_Tipo">
+            <End Role="Tipo" EntitySet="Tipo" />
+            <End Role="Socio" EntitySet="Socio" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Autor">
+          <Key>
+            <PropertyRef Name="IDAutor" />
+          </Key>
+          <Property Name="IDAutor" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="AutorXEjemplar">
+          <Key>
+            <PropertyRef Name="IDAutor" />
+            <PropertyRef Name="IDEjemplar" />
+          </Key>
+          <Property Name="IDAutor" Type="int" Nullable="false" />
+          <Property Name="IDEjemplar" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Casa Disquera">
+          <Key>
+            <PropertyRef Name="IDCasaDisquera" />
+          </Key>
+          <Property Name="IDCasaDisquera" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="IDCategoria" />
+          </Key>
+          <Property Name="IDCategoria" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Editorial">
+          <Key>
+            <PropertyRef Name="IDEditorial" />
+          </Key>
+          <Property Name="IDEditorial" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Ejemplar">
+          <Key>
+            <PropertyRef Name="IDEjemplar" />
+          </Key>
+          <Property Name="IDEjemplar" Type="int" Nullable="false" />
+          <Property Name="IDCategoria" Type="int" Nullable="false" />
+          <Property Name="IDGenero" Type="int" Nullable="false" />
+          <Property Name="IDEditorial" Type="int" Nullable="false" />
+          <Property Name="IDEstado" Type="int" Nullable="false" />
+          <Property Name="IDUbicacion" Type="int" Nullable="false" />
+          <Property Name="IDCasaDisquera" Type="int" />
+          <Property Name="Titulo" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Edicion" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Duracion" Type="int" Nullable="false" />
+          <Property Name="Extension" Type="int" Nullable="false" />
+          <Property Name="IDModalidad" Type="int" />
+          <Property Name="ISBN" Type="int" Nullable="false" />
+          <Property Name="ISSN" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EjemplarXPrestamo">
+          <Key>
+            <PropertyRef Name="IDEjemplar" />
+            <PropertyRef Name="IDPrestamo" />
+          </Key>
+          <Property Name="IDEjemplar" Type="int" Nullable="false" />
+          <Property Name="IDPrestamo" Type="int" Nullable="false" />
+          <Property Name="FechaDevolucion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Estado">
+          <Key>
+            <PropertyRef Name="IDEstado" />
+          </Key>
+          <Property Name="IDEstado" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Genero">
+          <Key>
+            <PropertyRef Name="IDGenero" />
+          </Key>
+          <Property Name="IDGenero" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Localidad">
+          <Key>
+            <PropertyRef Name="IDLocalidad" />
+          </Key>
+          <Property Name="IDLocalidad" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Modalidad">
+          <Key>
+            <PropertyRef Name="IDModalidad" />
+          </Key>
+          <Property Name="IDModalidad" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Prestamo">
+          <Key>
+            <PropertyRef Name="IDPrestamo" />
+          </Key>
+          <Property Name="IDPrestamo" Type="int" Nullable="false" />
+          <Property Name="IDSocio" Type="int" Nullable="false" />
+          <Property Name="FechaPrestamo" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Socio">
+          <Key>
+            <PropertyRef Name="IDSocio" />
+          </Key>
+          <Property Name="IDSocio" Type="int" Nullable="false" />
+          <Property Name="IDTipo" Type="int" Nullable="false" />
+          <Property Name="IDEstado" Type="int" Nullable="false" />
+          <Property Name="IDLocalidad" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="DNI" Type="int" />
+          <Property Name="Domicilio" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefono" Type="int" />
+          <Property Name="Correo" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tipo">
+          <Key>
+            <PropertyRef Name="IDTipo" />
+          </Key>
+          <Property Name="IDTipo" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Ubicacion">
+          <Key>
+            <PropertyRef Name="IDUbicacion" />
+          </Key>
+          <Property Name="IDUbicacion" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="IDUsuario" />
+          </Key>
+          <Property Name="IDUsuario" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Contraseña" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AutorXEjemplar_Autor">
+          <End Role="Autor" Type="BDBiblioSystemModel.Store.Autor" Multiplicity="1" />
+          <End Role="AutorXEjemplar" Type="BDBiblioSystemModel.Store.AutorXEjemplar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Autor">
+              <PropertyRef Name="IDAutor" />
+            </Principal>
+            <Dependent Role="AutorXEjemplar">
+              <PropertyRef Name="IDAutor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AutorXEjemplar_Ejemplar">
+          <End Role="Ejemplar" Type="BDBiblioSystemModel.Store.Ejemplar" Multiplicity="1" />
+          <End Role="AutorXEjemplar" Type="BDBiblioSystemModel.Store.AutorXEjemplar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ejemplar">
+              <PropertyRef Name="IDEjemplar" />
+            </Principal>
+            <Dependent Role="AutorXEjemplar">
+              <PropertyRef Name="IDEjemplar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejemplar_Casa Disquera">
+          <End Role="Casa Disquera" Type="BDBiblioSystemModel.Store.Casa Disquera" Multiplicity="0..1" />
+          <End Role="Ejemplar" Type="BDBiblioSystemModel.Store.Ejemplar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Casa Disquera">
+              <PropertyRef Name="IDCasaDisquera" />
+            </Principal>
+            <Dependent Role="Ejemplar">
+              <PropertyRef Name="IDCasaDisquera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejemplar_Categoria">
+          <End Role="Categoria" Type="BDBiblioSystemModel.Store.Categoria" Multiplicity="1" />
+          <End Role="Ejemplar" Type="BDBiblioSystemModel.Store.Ejemplar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="IDCategoria" />
+            </Principal>
+            <Dependent Role="Ejemplar">
+              <PropertyRef Name="IDCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejemplar_Editorial">
+          <End Role="Editorial" Type="BDBiblioSystemModel.Store.Editorial" Multiplicity="1" />
+          <End Role="Ejemplar" Type="BDBiblioSystemModel.Store.Ejemplar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Editorial">
+              <PropertyRef Name="IDEditorial" />
+            </Principal>
+            <Dependent Role="Ejemplar">
+              <PropertyRef Name="IDEditorial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejemplar_Estado">
+          <End Role="Estado" Type="BDBiblioSystemModel.Store.Estado" Multiplicity="1" />
+          <End Role="Ejemplar" Type="BDBiblioSystemModel.Store.Ejemplar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="IDEstado" />
+            </Principal>
+            <Dependent Role="Ejemplar">
+              <PropertyRef Name="IDEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejemplar_Genero">
+          <End Role="Genero" Type="BDBiblioSystemModel.Store.Genero" Multiplicity="1" />
+          <End Role="Ejemplar" Type="BDBiblioSystemModel.Store.Ejemplar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genero">
+              <PropertyRef Name="IDGenero" />
+            </Principal>
+            <Dependent Role="Ejemplar">
+              <PropertyRef Name="IDGenero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejemplar_Modalidad">
+          <End Role="Modalidad" Type="BDBiblioSystemModel.Store.Modalidad" Multiplicity="0..1" />
+          <End Role="Ejemplar" Type="BDBiblioSystemModel.Store.Ejemplar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modalidad">
+              <PropertyRef Name="IDModalidad" />
+            </Principal>
+            <Dependent Role="Ejemplar">
+              <PropertyRef Name="IDModalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejemplar_Ubicacion">
+          <End Role="Ubicacion" Type="BDBiblioSystemModel.Store.Ubicacion" Multiplicity="1" />
+          <End Role="Ejemplar" Type="BDBiblioSystemModel.Store.Ejemplar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ubicacion">
+              <PropertyRef Name="IDUbicacion" />
+            </Principal>
+            <Dependent Role="Ejemplar">
+              <PropertyRef Name="IDUbicacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EjemplarXPrestamo_Ejemplar">
+          <End Role="Ejemplar" Type="BDBiblioSystemModel.Store.Ejemplar" Multiplicity="1" />
+          <End Role="EjemplarXPrestamo" Type="BDBiblioSystemModel.Store.EjemplarXPrestamo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ejemplar">
+              <PropertyRef Name="IDEjemplar" />
+            </Principal>
+            <Dependent Role="EjemplarXPrestamo">
+              <PropertyRef Name="IDEjemplar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EjemplarXPrestamo_Prestamo">
+          <End Role="Prestamo" Type="BDBiblioSystemModel.Store.Prestamo" Multiplicity="1" />
+          <End Role="EjemplarXPrestamo" Type="BDBiblioSystemModel.Store.EjemplarXPrestamo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prestamo">
+              <PropertyRef Name="IDPrestamo" />
+            </Principal>
+            <Dependent Role="EjemplarXPrestamo">
+              <PropertyRef Name="IDPrestamo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prestamo_Socio">
+          <End Role="Socio" Type="BDBiblioSystemModel.Store.Socio" Multiplicity="1" />
+          <End Role="Prestamo" Type="BDBiblioSystemModel.Store.Prestamo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Socio">
+              <PropertyRef Name="IDSocio" />
+            </Principal>
+            <Dependent Role="Prestamo">
+              <PropertyRef Name="IDSocio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Socio_Estado">
+          <End Role="Estado" Type="BDBiblioSystemModel.Store.Estado" Multiplicity="1" />
+          <End Role="Socio" Type="BDBiblioSystemModel.Store.Socio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="IDEstado" />
+            </Principal>
+            <Dependent Role="Socio">
+              <PropertyRef Name="IDEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Socio_Localidad">
+          <End Role="Localidad" Type="BDBiblioSystemModel.Store.Localidad" Multiplicity="1" />
+          <End Role="Socio" Type="BDBiblioSystemModel.Store.Socio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Localidad">
+              <PropertyRef Name="IDLocalidad" />
+            </Principal>
+            <Dependent Role="Socio">
+              <PropertyRef Name="IDLocalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Socio_Tipo">
+          <End Role="Tipo" Type="BDBiblioSystemModel.Store.Tipo" Multiplicity="1" />
+          <End Role="Socio" Type="BDBiblioSystemModel.Store.Socio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo">
+              <PropertyRef Name="IDTipo" />
+            </Principal>
+            <Dependent Role="Socio">
+              <PropertyRef Name="IDTipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BDBiblioSystemModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="BDBiblioSystemEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Autor" EntityType="BDBiblioSystemModel.Autor" />
+          <EntitySet Name="Casa_Disquera" EntityType="BDBiblioSystemModel.Casa_Disquera" />
+          <EntitySet Name="Categoria" EntityType="BDBiblioSystemModel.Categoria" />
+          <EntitySet Name="Editorial" EntityType="BDBiblioSystemModel.Editorial" />
+          <EntitySet Name="Ejemplar" EntityType="BDBiblioSystemModel.Ejemplar" />
+          <EntitySet Name="EjemplarXPrestamo" EntityType="BDBiblioSystemModel.EjemplarXPrestamo" />
+          <EntitySet Name="Estado" EntityType="BDBiblioSystemModel.Estado" />
+          <EntitySet Name="Genero" EntityType="BDBiblioSystemModel.Genero" />
+          <EntitySet Name="Localidad" EntityType="BDBiblioSystemModel.Localidad" />
+          <EntitySet Name="Modalidad" EntityType="BDBiblioSystemModel.Modalidad" />
+          <EntitySet Name="Prestamo" EntityType="BDBiblioSystemModel.Prestamo" />
+          <EntitySet Name="Socio" EntityType="BDBiblioSystemModel.Socio" />
+          <EntitySet Name="sysdiagrams" EntityType="BDBiblioSystemModel.sysdiagrams" />
+          <EntitySet Name="Tipo" EntityType="BDBiblioSystemModel.Tipo" />
+          <EntitySet Name="Ubicacion" EntityType="BDBiblioSystemModel.Ubicacion" />
+          <EntitySet Name="Usuario" EntityType="BDBiblioSystemModel.Usuario" />
+          <AssociationSet Name="FK_Ejemplar_Casa_Disquera" Association="BDBiblioSystemModel.FK_Ejemplar_Casa_Disquera">
+            <End Role="Casa_Disquera" EntitySet="Casa_Disquera" />
+            <End Role="Ejemplar" EntitySet="Ejemplar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejemplar_Categoria" Association="BDBiblioSystemModel.FK_Ejemplar_Categoria">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Ejemplar" EntitySet="Ejemplar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejemplar_Editorial" Association="BDBiblioSystemModel.FK_Ejemplar_Editorial">
+            <End Role="Editorial" EntitySet="Editorial" />
+            <End Role="Ejemplar" EntitySet="Ejemplar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejemplar_Estado" Association="BDBiblioSystemModel.FK_Ejemplar_Estado">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="Ejemplar" EntitySet="Ejemplar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejemplar_Genero" Association="BDBiblioSystemModel.FK_Ejemplar_Genero">
+            <End Role="Genero" EntitySet="Genero" />
+            <End Role="Ejemplar" EntitySet="Ejemplar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejemplar_Modalidad" Association="BDBiblioSystemModel.FK_Ejemplar_Modalidad">
+            <End Role="Modalidad" EntitySet="Modalidad" />
+            <End Role="Ejemplar" EntitySet="Ejemplar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejemplar_Ubicacion" Association="BDBiblioSystemModel.FK_Ejemplar_Ubicacion">
+            <End Role="Ubicacion" EntitySet="Ubicacion" />
+            <End Role="Ejemplar" EntitySet="Ejemplar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EjemplarXPrestamo_Ejemplar" Association="BDBiblioSystemModel.FK_EjemplarXPrestamo_Ejemplar">
+            <End Role="Ejemplar" EntitySet="Ejemplar" />
+            <End Role="EjemplarXPrestamo" EntitySet="EjemplarXPrestamo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EjemplarXPrestamo_Prestamo" Association="BDBiblioSystemModel.FK_EjemplarXPrestamo_Prestamo">
+            <End Role="Prestamo" EntitySet="Prestamo" />
+            <End Role="EjemplarXPrestamo" EntitySet="EjemplarXPrestamo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Socio_Estado" Association="BDBiblioSystemModel.FK_Socio_Estado">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="Socio" EntitySet="Socio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Socio_Localidad" Association="BDBiblioSystemModel.FK_Socio_Localidad">
+            <End Role="Localidad" EntitySet="Localidad" />
+            <End Role="Socio" EntitySet="Socio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prestamo_Socio" Association="BDBiblioSystemModel.FK_Prestamo_Socio">
+            <End Role="Socio" EntitySet="Socio" />
+            <End Role="Prestamo" EntitySet="Prestamo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Socio_Tipo" Association="BDBiblioSystemModel.FK_Socio_Tipo">
+            <End Role="Tipo" EntitySet="Tipo" />
+            <End Role="Socio" EntitySet="Socio" />
+          </AssociationSet>
+          <AssociationSet Name="AutorXEjemplar" Association="BDBiblioSystemModel.AutorXEjemplar">
+            <End Role="Autor" EntitySet="Autor" />
+            <End Role="Ejemplar" EntitySet="Ejemplar" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Autor">
+          <Key>
+            <PropertyRef Name="IDAutor" />
+          </Key>
+          <Property Name="IDAutor" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Ejemplar" Relationship="BDBiblioSystemModel.AutorXEjemplar" FromRole="Autor" ToRole="Ejemplar" />
+        </EntityType>
+        <EntityType Name="Casa_Disquera">
+          <Key>
+            <PropertyRef Name="IDCasaDisquera" />
+          </Key>
+          <Property Name="IDCasaDisquera" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Ejemplar" Relationship="BDBiblioSystemModel.FK_Ejemplar_Casa_Disquera" FromRole="Casa_Disquera" ToRole="Ejemplar" />
+        </EntityType>
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="IDCategoria" />
+          </Key>
+          <Property Name="IDCategoria" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Ejemplar" Relationship="BDBiblioSystemModel.FK_Ejemplar_Categoria" FromRole="Categoria" ToRole="Ejemplar" />
+        </EntityType>
+        <EntityType Name="Editorial">
+          <Key>
+            <PropertyRef Name="IDEditorial" />
+          </Key>
+          <Property Name="IDEditorial" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Ejemplar" Relationship="BDBiblioSystemModel.FK_Ejemplar_Editorial" FromRole="Editorial" ToRole="Ejemplar" />
+        </EntityType>
+        <EntityType Name="Ejemplar">
+          <Key>
+            <PropertyRef Name="IDEjemplar" />
+          </Key>
+          <Property Name="IDEjemplar" Type="Int32" Nullable="false" />
+          <Property Name="IDCategoria" Type="Int32" Nullable="false" />
+          <Property Name="IDGenero" Type="Int32" Nullable="false" />
+          <Property Name="IDEditorial" Type="Int32" Nullable="false" />
+          <Property Name="IDEstado" Type="Int32" Nullable="false" />
+          <Property Name="IDUbicacion" Type="Int32" Nullable="false" />
+          <Property Name="IDCasaDisquera" Type="Int32" />
+          <Property Name="Titulo" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Edicion" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Duracion" Type="Int32" Nullable="false" />
+          <Property Name="Extension" Type="Int32" Nullable="false" />
+          <Property Name="IDModalidad" Type="Int32" />
+          <Property Name="ISBN" Type="Int32" Nullable="false" />
+          <Property Name="ISSN" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Casa_Disquera" Relationship="BDBiblioSystemModel.FK_Ejemplar_Casa_Disquera" FromRole="Ejemplar" ToRole="Casa_Disquera" />
+          <NavigationProperty Name="Categoria" Relationship="BDBiblioSystemModel.FK_Ejemplar_Categoria" FromRole="Ejemplar" ToRole="Categoria" />
+          <NavigationProperty Name="Editorial" Relationship="BDBiblioSystemModel.FK_Ejemplar_Editorial" FromRole="Ejemplar" ToRole="Editorial" />
+          <NavigationProperty Name="Estado" Relationship="BDBiblioSystemModel.FK_Ejemplar_Estado" FromRole="Ejemplar" ToRole="Estado" />
+          <NavigationProperty Name="Genero" Relationship="BDBiblioSystemModel.FK_Ejemplar_Genero" FromRole="Ejemplar" ToRole="Genero" />
+          <NavigationProperty Name="Modalidad" Relationship="BDBiblioSystemModel.FK_Ejemplar_Modalidad" FromRole="Ejemplar" ToRole="Modalidad" />
+          <NavigationProperty Name="Ubicacion" Relationship="BDBiblioSystemModel.FK_Ejemplar_Ubicacion" FromRole="Ejemplar" ToRole="Ubicacion" />
+          <NavigationProperty Name="EjemplarXPrestamo" Relationship="BDBiblioSystemModel.FK_EjemplarXPrestamo_Ejemplar" FromRole="Ejemplar" ToRole="EjemplarXPrestamo" />
+          <NavigationProperty Name="Autor" Relationship="BDBiblioSystemModel.AutorXEjemplar" FromRole="Ejemplar" ToRole="Autor" />
+        </EntityType>
+        <EntityType Name="EjemplarXPrestamo">
+          <Key>
+            <PropertyRef Name="IDEjemplar" />
+            <PropertyRef Name="IDPrestamo" />
+          </Key>
+          <Property Name="IDEjemplar" Type="Int32" Nullable="false" />
+          <Property Name="IDPrestamo" Type="Int32" Nullable="false" />
+          <Property Name="FechaDevolucion" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Ejemplar" Relationship="BDBiblioSystemModel.FK_EjemplarXPrestamo_Ejemplar" FromRole="EjemplarXPrestamo" ToRole="Ejemplar" />
+          <NavigationProperty Name="Prestamo" Relationship="BDBiblioSystemModel.FK_EjemplarXPrestamo_Prestamo" FromRole="EjemplarXPrestamo" ToRole="Prestamo" />
+        </EntityType>
+        <EntityType Name="Estado">
+          <Key>
+            <PropertyRef Name="IDEstado" />
+          </Key>
+          <Property Name="IDEstado" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Ejemplar" Relationship="BDBiblioSystemModel.FK_Ejemplar_Estado" FromRole="Estado" ToRole="Ejemplar" />
+          <NavigationProperty Name="Socio" Relationship="BDBiblioSystemModel.FK_Socio_Estado" FromRole="Estado" ToRole="Socio" />
+        </EntityType>
+        <EntityType Name="Genero">
+          <Key>
+            <PropertyRef Name="IDGenero" />
+          </Key>
+          <Property Name="IDGenero" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Ejemplar" Relationship="BDBiblioSystemModel.FK_Ejemplar_Genero" FromRole="Genero" ToRole="Ejemplar" />
+        </EntityType>
+        <EntityType Name="Localidad">
+          <Key>
+            <PropertyRef Name="IDLocalidad" />
+          </Key>
+          <Property Name="IDLocalidad" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Socio" Relationship="BDBiblioSystemModel.FK_Socio_Localidad" FromRole="Localidad" ToRole="Socio" />
+        </EntityType>
+        <EntityType Name="Modalidad">
+          <Key>
+            <PropertyRef Name="IDModalidad" />
+          </Key>
+          <Property Name="IDModalidad" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Ejemplar" Relationship="BDBiblioSystemModel.FK_Ejemplar_Modalidad" FromRole="Modalidad" ToRole="Ejemplar" />
+        </EntityType>
+        <EntityType Name="Prestamo">
+          <Key>
+            <PropertyRef Name="IDPrestamo" />
+          </Key>
+          <Property Name="IDPrestamo" Type="Int32" Nullable="false" />
+          <Property Name="IDSocio" Type="Int32" Nullable="false" />
+          <Property Name="FechaPrestamo" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="EjemplarXPrestamo" Relationship="BDBiblioSystemModel.FK_EjemplarXPrestamo_Prestamo" FromRole="Prestamo" ToRole="EjemplarXPrestamo" />
+          <NavigationProperty Name="Socio" Relationship="BDBiblioSystemModel.FK_Prestamo_Socio" FromRole="Prestamo" ToRole="Socio" />
+        </EntityType>
+        <EntityType Name="Socio">
+          <Key>
+            <PropertyRef Name="IDSocio" />
+          </Key>
+          <Property Name="IDSocio" Type="Int32" Nullable="false" />
+          <Property Name="IDTipo" Type="Int32" Nullable="false" />
+          <Property Name="IDEstado" Type="Int32" Nullable="false" />
+          <Property Name="IDLocalidad" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="DNI" Type="Int32" />
+          <Property Name="Domicilio" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Telefono" Type="Int32" />
+          <Property Name="Correo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Estado" Relationship="BDBiblioSystemModel.FK_Socio_Estado" FromRole="Socio" ToRole="Estado" />
+          <NavigationProperty Name="Localidad" Relationship="BDBiblioSystemModel.FK_Socio_Localidad" FromRole="Socio" ToRole="Localidad" />
+          <NavigationProperty Name="Prestamo" Relationship="BDBiblioSystemModel.FK_Prestamo_Socio" FromRole="Socio" ToRole="Prestamo" />
+          <NavigationProperty Name="Tipo" Relationship="BDBiblioSystemModel.FK_Socio_Tipo" FromRole="Socio" ToRole="Tipo" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tipo">
+          <Key>
+            <PropertyRef Name="IDTipo" />
+          </Key>
+          <Property Name="IDTipo" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Socio" Relationship="BDBiblioSystemModel.FK_Socio_Tipo" FromRole="Tipo" ToRole="Socio" />
+        </EntityType>
+        <EntityType Name="Ubicacion">
+          <Key>
+            <PropertyRef Name="IDUbicacion" />
+          </Key>
+          <Property Name="IDUbicacion" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Ejemplar" Relationship="BDBiblioSystemModel.FK_Ejemplar_Ubicacion" FromRole="Ubicacion" ToRole="Ejemplar" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="IDUsuario" />
+          </Key>
+          <Property Name="IDUsuario" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Contraseña" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Ejemplar_Casa_Disquera">
+          <End Role="Casa_Disquera" Type="BDBiblioSystemModel.Casa_Disquera" Multiplicity="0..1" />
+          <End Role="Ejemplar" Type="BDBiblioSystemModel.Ejemplar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Casa_Disquera">
+              <PropertyRef Name="IDCasaDisquera" />
+            </Principal>
+            <Dependent Role="Ejemplar">
+              <PropertyRef Name="IDCasaDisquera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejemplar_Categoria">
+          <End Role="Categoria" Type="BDBiblioSystemModel.Categoria" Multiplicity="1" />
+          <End Role="Ejemplar" Type="BDBiblioSystemModel.Ejemplar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="IDCategoria" />
+            </Principal>
+            <Dependent Role="Ejemplar">
+              <PropertyRef Name="IDCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejemplar_Editorial">
+          <End Role="Editorial" Type="BDBiblioSystemModel.Editorial" Multiplicity="1" />
+          <End Role="Ejemplar" Type="BDBiblioSystemModel.Ejemplar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Editorial">
+              <PropertyRef Name="IDEditorial" />
+            </Principal>
+            <Dependent Role="Ejemplar">
+              <PropertyRef Name="IDEditorial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejemplar_Estado">
+          <End Role="Estado" Type="BDBiblioSystemModel.Estado" Multiplicity="1" />
+          <End Role="Ejemplar" Type="BDBiblioSystemModel.Ejemplar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="IDEstado" />
+            </Principal>
+            <Dependent Role="Ejemplar">
+              <PropertyRef Name="IDEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejemplar_Genero">
+          <End Role="Genero" Type="BDBiblioSystemModel.Genero" Multiplicity="1" />
+          <End Role="Ejemplar" Type="BDBiblioSystemModel.Ejemplar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genero">
+              <PropertyRef Name="IDGenero" />
+            </Principal>
+            <Dependent Role="Ejemplar">
+              <PropertyRef Name="IDGenero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejemplar_Modalidad">
+          <End Role="Modalidad" Type="BDBiblioSystemModel.Modalidad" Multiplicity="0..1" />
+          <End Role="Ejemplar" Type="BDBiblioSystemModel.Ejemplar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modalidad">
+              <PropertyRef Name="IDModalidad" />
+            </Principal>
+            <Dependent Role="Ejemplar">
+              <PropertyRef Name="IDModalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejemplar_Ubicacion">
+          <End Role="Ubicacion" Type="BDBiblioSystemModel.Ubicacion" Multiplicity="1" />
+          <End Role="Ejemplar" Type="BDBiblioSystemModel.Ejemplar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ubicacion">
+              <PropertyRef Name="IDUbicacion" />
+            </Principal>
+            <Dependent Role="Ejemplar">
+              <PropertyRef Name="IDUbicacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EjemplarXPrestamo_Ejemplar">
+          <End Role="Ejemplar" Type="BDBiblioSystemModel.Ejemplar" Multiplicity="1" />
+          <End Role="EjemplarXPrestamo" Type="BDBiblioSystemModel.EjemplarXPrestamo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ejemplar">
+              <PropertyRef Name="IDEjemplar" />
+            </Principal>
+            <Dependent Role="EjemplarXPrestamo">
+              <PropertyRef Name="IDEjemplar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EjemplarXPrestamo_Prestamo">
+          <End Role="Prestamo" Type="BDBiblioSystemModel.Prestamo" Multiplicity="1" />
+          <End Role="EjemplarXPrestamo" Type="BDBiblioSystemModel.EjemplarXPrestamo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prestamo">
+              <PropertyRef Name="IDPrestamo" />
+            </Principal>
+            <Dependent Role="EjemplarXPrestamo">
+              <PropertyRef Name="IDPrestamo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Socio_Estado">
+          <End Role="Estado" Type="BDBiblioSystemModel.Estado" Multiplicity="1" />
+          <End Role="Socio" Type="BDBiblioSystemModel.Socio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="IDEstado" />
+            </Principal>
+            <Dependent Role="Socio">
+              <PropertyRef Name="IDEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Socio_Localidad">
+          <End Role="Localidad" Type="BDBiblioSystemModel.Localidad" Multiplicity="1" />
+          <End Role="Socio" Type="BDBiblioSystemModel.Socio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Localidad">
+              <PropertyRef Name="IDLocalidad" />
+            </Principal>
+            <Dependent Role="Socio">
+              <PropertyRef Name="IDLocalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prestamo_Socio">
+          <End Role="Socio" Type="BDBiblioSystemModel.Socio" Multiplicity="1" />
+          <End Role="Prestamo" Type="BDBiblioSystemModel.Prestamo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Socio">
+              <PropertyRef Name="IDSocio" />
+            </Principal>
+            <Dependent Role="Prestamo">
+              <PropertyRef Name="IDSocio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Socio_Tipo">
+          <End Role="Tipo" Type="BDBiblioSystemModel.Tipo" Multiplicity="1" />
+          <End Role="Socio" Type="BDBiblioSystemModel.Socio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo">
+              <PropertyRef Name="IDTipo" />
+            </Principal>
+            <Dependent Role="Socio">
+              <PropertyRef Name="IDTipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AutorXEjemplar">
+          <End Role="Autor" Type="BDBiblioSystemModel.Autor" Multiplicity="*" />
+          <End Role="Ejemplar" Type="BDBiblioSystemModel.Ejemplar" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BDBiblioSystemModelStoreContainer" CdmEntityContainer="BDBiblioSystemEntities">
+          <EntitySetMapping Name="Autor">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.Autor">
+              <MappingFragment StoreEntitySet="Autor">
+                <ScalarProperty Name="IDAutor" ColumnName="IDAutor" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Casa_Disquera">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.Casa_Disquera">
+              <MappingFragment StoreEntitySet="Casa Disquera">
+                <ScalarProperty Name="IDCasaDisquera" ColumnName="IDCasaDisquera" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categoria">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.Categoria">
+              <MappingFragment StoreEntitySet="Categoria">
+                <ScalarProperty Name="IDCategoria" ColumnName="IDCategoria" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Editorial">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.Editorial">
+              <MappingFragment StoreEntitySet="Editorial">
+                <ScalarProperty Name="IDEditorial" ColumnName="IDEditorial" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ejemplar">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.Ejemplar">
+              <MappingFragment StoreEntitySet="Ejemplar">
+                <ScalarProperty Name="IDEjemplar" ColumnName="IDEjemplar" />
+                <ScalarProperty Name="IDCategoria" ColumnName="IDCategoria" />
+                <ScalarProperty Name="IDGenero" ColumnName="IDGenero" />
+                <ScalarProperty Name="IDEditorial" ColumnName="IDEditorial" />
+                <ScalarProperty Name="IDEstado" ColumnName="IDEstado" />
+                <ScalarProperty Name="IDUbicacion" ColumnName="IDUbicacion" />
+                <ScalarProperty Name="IDCasaDisquera" ColumnName="IDCasaDisquera" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Edicion" ColumnName="Edicion" />
+                <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="IDModalidad" ColumnName="IDModalidad" />
+                <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+                <ScalarProperty Name="ISSN" ColumnName="ISSN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EjemplarXPrestamo">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.EjemplarXPrestamo">
+              <MappingFragment StoreEntitySet="EjemplarXPrestamo">
+                <ScalarProperty Name="IDEjemplar" ColumnName="IDEjemplar" />
+                <ScalarProperty Name="IDPrestamo" ColumnName="IDPrestamo" />
+                <ScalarProperty Name="FechaDevolucion" ColumnName="FechaDevolucion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estado">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.Estado">
+              <MappingFragment StoreEntitySet="Estado">
+                <ScalarProperty Name="IDEstado" ColumnName="IDEstado" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genero">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.Genero">
+              <MappingFragment StoreEntitySet="Genero">
+                <ScalarProperty Name="IDGenero" ColumnName="IDGenero" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Localidad">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.Localidad">
+              <MappingFragment StoreEntitySet="Localidad">
+                <ScalarProperty Name="IDLocalidad" ColumnName="IDLocalidad" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modalidad">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.Modalidad">
+              <MappingFragment StoreEntitySet="Modalidad">
+                <ScalarProperty Name="IDModalidad" ColumnName="IDModalidad" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prestamo">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.Prestamo">
+              <MappingFragment StoreEntitySet="Prestamo">
+                <ScalarProperty Name="IDPrestamo" ColumnName="IDPrestamo" />
+                <ScalarProperty Name="IDSocio" ColumnName="IDSocio" />
+                <ScalarProperty Name="FechaPrestamo" ColumnName="FechaPrestamo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Socio">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.Socio">
+              <MappingFragment StoreEntitySet="Socio">
+                <ScalarProperty Name="IDSocio" ColumnName="IDSocio" />
+                <ScalarProperty Name="IDTipo" ColumnName="IDTipo" />
+                <ScalarProperty Name="IDEstado" ColumnName="IDEstado" />
+                <ScalarProperty Name="IDLocalidad" ColumnName="IDLocalidad" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="DNI" ColumnName="DNI" />
+                <ScalarProperty Name="Domicilio" ColumnName="Domicilio" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.Tipo">
+              <MappingFragment StoreEntitySet="Tipo">
+                <ScalarProperty Name="IDTipo" ColumnName="IDTipo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ubicacion">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.Ubicacion">
+              <MappingFragment StoreEntitySet="Ubicacion">
+                <ScalarProperty Name="IDUbicacion" ColumnName="IDUbicacion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AutorXEjemplar" TypeName="BDBiblioSystemModel.AutorXEjemplar" StoreEntitySet="AutorXEjemplar">
+            <EndProperty Name="Autor">
+              <ScalarProperty Name="IDAutor" ColumnName="IDAutor" />
+            </EndProperty>
+            <EndProperty Name="Ejemplar">
+              <ScalarProperty Name="IDEjemplar" ColumnName="IDEjemplar" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,833 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BDBiblioSystemModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="BDBiblioSystemModelStoreContainer">
+          <EntitySet Name="Autor" EntityType="BDBiblioSystemModel.Store.Autor" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AutorXLibro" EntityType="BDBiblioSystemModel.Store.AutorXLibro" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Categoria" EntityType="BDBiblioSystemModel.Store.Categoria" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Editorial" EntityType="BDBiblioSystemModel.Store.Editorial" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Estado" EntityType="BDBiblioSystemModel.Store.Estado" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Libro" EntityType="BDBiblioSystemModel.Store.Libro" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LibroXPrestamo" EntityType="BDBiblioSystemModel.Store.LibroXPrestamo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Localidad" EntityType="BDBiblioSystemModel.Store.Localidad" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Prestamo" EntityType="BDBiblioSystemModel.Store.Prestamo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Socio" EntityType="BDBiblioSystemModel.Store.Socio" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="BDBiblioSystemModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Ubicacion" EntityType="BDBiblioSystemModel.Store.Ubicacion" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Usuario" EntityType="BDBiblioSystemModel.Store.Usuario" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_AutorXLibro_Autor" Association="BDBiblioSystemModel.Store.FK_AutorXLibro_Autor">
+            <End Role="Autor" EntitySet="Autor" />
+            <End Role="AutorXLibro" EntitySet="AutorXLibro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AutorXLibro_Libro" Association="BDBiblioSystemModel.Store.FK_AutorXLibro_Libro">
+            <End Role="Libro" EntitySet="Libro" />
+            <End Role="AutorXLibro" EntitySet="AutorXLibro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejemplar_Categoria" Association="BDBiblioSystemModel.Store.FK_Ejemplar_Categoria">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Libro" EntitySet="Libro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejemplar_Editorial" Association="BDBiblioSystemModel.Store.FK_Ejemplar_Editorial">
+            <End Role="Editorial" EntitySet="Editorial" />
+            <End Role="Libro" EntitySet="Libro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejemplar_Ubicacion" Association="BDBiblioSystemModel.Store.FK_Ejemplar_Ubicacion">
+            <End Role="Ubicacion" EntitySet="Ubicacion" />
+            <End Role="Libro" EntitySet="Libro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EjemplarXPrestamo_Prestamo" Association="BDBiblioSystemModel.Store.FK_EjemplarXPrestamo_Prestamo">
+            <End Role="Prestamo" EntitySet="Prestamo" />
+            <End Role="LibroXPrestamo" EntitySet="LibroXPrestamo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Libro_Estado" Association="BDBiblioSystemModel.Store.FK_Libro_Estado">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="Libro" EntitySet="Libro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LibroXPrestamo_Libro" Association="BDBiblioSystemModel.Store.FK_LibroXPrestamo_Libro">
+            <End Role="Libro" EntitySet="Libro" />
+            <End Role="LibroXPrestamo" EntitySet="LibroXPrestamo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prestamo_Estado" Association="BDBiblioSystemModel.Store.FK_Prestamo_Estado">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="Prestamo" EntitySet="Prestamo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prestamo_Socio" Association="BDBiblioSystemModel.Store.FK_Prestamo_Socio">
+            <End Role="Socio" EntitySet="Socio" />
+            <End Role="Prestamo" EntitySet="Prestamo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Socio_Estado" Association="BDBiblioSystemModel.Store.FK_Socio_Estado">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="Socio" EntitySet="Socio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Socio_Localidad" Association="BDBiblioSystemModel.Store.FK_Socio_Localidad">
+            <End Role="Localidad" EntitySet="Localidad" />
+            <End Role="Socio" EntitySet="Socio" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Autor">
+          <Key>
+            <PropertyRef Name="IDAutor" />
+          </Key>
+          <Property Name="IDAutor" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="AutorXLibro">
+          <Key>
+            <PropertyRef Name="IDAutorXLibro" />
+            <PropertyRef Name="IDAutor" />
+            <PropertyRef Name="IDLibro" />
+          </Key>
+          <Property Name="IDAutorXLibro" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IDAutor" Type="int" Nullable="false" />
+          <Property Name="IDLibro" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="IDCategoria" />
+          </Key>
+          <Property Name="IDCategoria" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Editorial">
+          <Key>
+            <PropertyRef Name="IDEditorial" />
+          </Key>
+          <Property Name="IDEditorial" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Estado">
+          <Key>
+            <PropertyRef Name="IDEstado" />
+          </Key>
+          <Property Name="IDEstado" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Libro">
+          <Key>
+            <PropertyRef Name="IDLibro" />
+          </Key>
+          <Property Name="IDLibro" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IDCategoria" Type="int" Nullable="false" />
+          <Property Name="IDEditorial" Type="int" Nullable="false" />
+          <Property Name="IDUbicacion" Type="int" Nullable="false" />
+          <Property Name="IDEstado" Type="int" Nullable="false" />
+          <Property Name="Titulo" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Edicion" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ISBN" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LibroXPrestamo">
+          <Key>
+            <PropertyRef Name="IDPrestamo" />
+            <PropertyRef Name="IDLibro" />
+          </Key>
+          <Property Name="IDPrestamo" Type="int" Nullable="false" />
+          <Property Name="IDLibro" Type="int" Nullable="false" />
+          <Property Name="FechaDevolucion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Localidad">
+          <Key>
+            <PropertyRef Name="IDLocalidad" />
+          </Key>
+          <Property Name="IDLocalidad" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Prestamo">
+          <Key>
+            <PropertyRef Name="IDPrestamo" />
+          </Key>
+          <Property Name="IDPrestamo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IDSocio" Type="int" Nullable="false" />
+          <Property Name="IDEstado" Type="int" Nullable="false" />
+          <Property Name="FechaPrestamo" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Socio">
+          <Key>
+            <PropertyRef Name="IDSocio" />
+          </Key>
+          <Property Name="IDSocio" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IDEstado" Type="int" Nullable="false" />
+          <Property Name="IDLocalidad" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="DNI" Type="int" />
+          <Property Name="Domicilio" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefono" Type="bigint" />
+          <Property Name="Correo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Foto" Type="image" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Ubicacion">
+          <Key>
+            <PropertyRef Name="IDUbicacion" />
+          </Key>
+          <Property Name="IDUbicacion" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="IDUsuario" />
+          </Key>
+          <Property Name="IDUsuario" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Contraseña" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_AutorXLibro_Autor">
+          <End Role="Autor" Type="BDBiblioSystemModel.Store.Autor" Multiplicity="1" />
+          <End Role="AutorXLibro" Type="BDBiblioSystemModel.Store.AutorXLibro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Autor">
+              <PropertyRef Name="IDAutor" />
+            </Principal>
+            <Dependent Role="AutorXLibro">
+              <PropertyRef Name="IDAutor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AutorXLibro_Libro">
+          <End Role="Libro" Type="BDBiblioSystemModel.Store.Libro" Multiplicity="1" />
+          <End Role="AutorXLibro" Type="BDBiblioSystemModel.Store.AutorXLibro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Libro">
+              <PropertyRef Name="IDLibro" />
+            </Principal>
+            <Dependent Role="AutorXLibro">
+              <PropertyRef Name="IDLibro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejemplar_Categoria">
+          <End Role="Categoria" Type="BDBiblioSystemModel.Store.Categoria" Multiplicity="1" />
+          <End Role="Libro" Type="BDBiblioSystemModel.Store.Libro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="IDCategoria" />
+            </Principal>
+            <Dependent Role="Libro">
+              <PropertyRef Name="IDCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejemplar_Editorial">
+          <End Role="Editorial" Type="BDBiblioSystemModel.Store.Editorial" Multiplicity="1" />
+          <End Role="Libro" Type="BDBiblioSystemModel.Store.Libro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Editorial">
+              <PropertyRef Name="IDEditorial" />
+            </Principal>
+            <Dependent Role="Libro">
+              <PropertyRef Name="IDEditorial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejemplar_Ubicacion">
+          <End Role="Ubicacion" Type="BDBiblioSystemModel.Store.Ubicacion" Multiplicity="1" />
+          <End Role="Libro" Type="BDBiblioSystemModel.Store.Libro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ubicacion">
+              <PropertyRef Name="IDUbicacion" />
+            </Principal>
+            <Dependent Role="Libro">
+              <PropertyRef Name="IDUbicacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EjemplarXPrestamo_Prestamo">
+          <End Role="Prestamo" Type="BDBiblioSystemModel.Store.Prestamo" Multiplicity="1" />
+          <End Role="LibroXPrestamo" Type="BDBiblioSystemModel.Store.LibroXPrestamo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prestamo">
+              <PropertyRef Name="IDPrestamo" />
+            </Principal>
+            <Dependent Role="LibroXPrestamo">
+              <PropertyRef Name="IDPrestamo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Libro_Estado">
+          <End Role="Estado" Type="BDBiblioSystemModel.Store.Estado" Multiplicity="1" />
+          <End Role="Libro" Type="BDBiblioSystemModel.Store.Libro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="IDEstado" />
+            </Principal>
+            <Dependent Role="Libro">
+              <PropertyRef Name="IDEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LibroXPrestamo_Libro">
+          <End Role="Libro" Type="BDBiblioSystemModel.Store.Libro" Multiplicity="1" />
+          <End Role="LibroXPrestamo" Type="BDBiblioSystemModel.Store.LibroXPrestamo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Libro">
+              <PropertyRef Name="IDLibro" />
+            </Principal>
+            <Dependent Role="LibroXPrestamo">
+              <PropertyRef Name="IDLibro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prestamo_Estado">
+          <End Role="Estado" Type="BDBiblioSystemModel.Store.Estado" Multiplicity="1" />
+          <End Role="Prestamo" Type="BDBiblioSystemModel.Store.Prestamo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="IDEstado" />
+            </Principal>
+            <Dependent Role="Prestamo">
+              <PropertyRef Name="IDEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prestamo_Socio">
+          <End Role="Socio" Type="BDBiblioSystemModel.Store.Socio" Multiplicity="1" />
+          <End Role="Prestamo" Type="BDBiblioSystemModel.Store.Prestamo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Socio">
+              <PropertyRef Name="IDSocio" />
+            </Principal>
+            <Dependent Role="Prestamo">
+              <PropertyRef Name="IDSocio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Socio_Estado">
+          <End Role="Estado" Type="BDBiblioSystemModel.Store.Estado" Multiplicity="1" />
+          <End Role="Socio" Type="BDBiblioSystemModel.Store.Socio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="IDEstado" />
+            </Principal>
+            <Dependent Role="Socio">
+              <PropertyRef Name="IDEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Socio_Localidad">
+          <End Role="Localidad" Type="BDBiblioSystemModel.Store.Localidad" Multiplicity="1" />
+          <End Role="Socio" Type="BDBiblioSystemModel.Store.Socio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Localidad">
+              <PropertyRef Name="IDLocalidad" />
+            </Principal>
+            <Dependent Role="Socio">
+              <PropertyRef Name="IDLocalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BDBiblioSystemModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="BDBiblioSystemEntities3" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Autor" EntityType="BDBiblioSystemModel.Autor" />
+          <EntitySet Name="AutorXLibro" EntityType="BDBiblioSystemModel.AutorXLibro" />
+          <EntitySet Name="Categoria" EntityType="BDBiblioSystemModel.Categoria" />
+          <EntitySet Name="Editorial" EntityType="BDBiblioSystemModel.Editorial" />
+          <EntitySet Name="Estado" EntityType="BDBiblioSystemModel.Estado" />
+          <EntitySet Name="Libro" EntityType="BDBiblioSystemModel.Libro" />
+          <EntitySet Name="LibroXPrestamo" EntityType="BDBiblioSystemModel.LibroXPrestamo" />
+          <EntitySet Name="Localidad" EntityType="BDBiblioSystemModel.Localidad" />
+          <EntitySet Name="Prestamo" EntityType="BDBiblioSystemModel.Prestamo" />
+          <EntitySet Name="Socio" EntityType="BDBiblioSystemModel.Socio" />
+          <EntitySet Name="sysdiagrams" EntityType="BDBiblioSystemModel.sysdiagrams" />
+          <EntitySet Name="Ubicacion" EntityType="BDBiblioSystemModel.Ubicacion" />
+          <EntitySet Name="Usuario" EntityType="BDBiblioSystemModel.Usuario" />
+          <AssociationSet Name="FK_AutorXLibro_Autor" Association="BDBiblioSystemModel.FK_AutorXLibro_Autor">
+            <End Role="Autor" EntitySet="Autor" />
+            <End Role="AutorXLibro" EntitySet="AutorXLibro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejemplar_Categoria" Association="BDBiblioSystemModel.FK_Ejemplar_Categoria">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Libro" EntitySet="Libro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejemplar_Editorial" Association="BDBiblioSystemModel.FK_Ejemplar_Editorial">
+            <End Role="Editorial" EntitySet="Editorial" />
+            <End Role="Libro" EntitySet="Libro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Libro_Estado" Association="BDBiblioSystemModel.FK_Libro_Estado">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="Libro" EntitySet="Libro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Socio_Estado" Association="BDBiblioSystemModel.FK_Socio_Estado">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="Socio" EntitySet="Socio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejemplar_Ubicacion" Association="BDBiblioSystemModel.FK_Ejemplar_Ubicacion">
+            <End Role="Ubicacion" EntitySet="Ubicacion" />
+            <End Role="Libro" EntitySet="Libro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EjemplarXPrestamo_Prestamo" Association="BDBiblioSystemModel.FK_EjemplarXPrestamo_Prestamo">
+            <End Role="Prestamo" EntitySet="Prestamo" />
+            <End Role="LibroXPrestamo" EntitySet="LibroXPrestamo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Socio_Localidad" Association="BDBiblioSystemModel.FK_Socio_Localidad">
+            <End Role="Localidad" EntitySet="Localidad" />
+            <End Role="Socio" EntitySet="Socio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prestamo_Socio" Association="BDBiblioSystemModel.FK_Prestamo_Socio">
+            <End Role="Socio" EntitySet="Socio" />
+            <End Role="Prestamo" EntitySet="Prestamo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AutorXLibro_Libro" Association="BDBiblioSystemModel.FK_AutorXLibro_Libro">
+            <End Role="Libro" EntitySet="Libro" />
+            <End Role="AutorXLibro" EntitySet="AutorXLibro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prestamo_Estado" Association="BDBiblioSystemModel.FK_Prestamo_Estado">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="Prestamo" EntitySet="Prestamo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LibroXPrestamo_Libro" Association="BDBiblioSystemModel.FK_LibroXPrestamo_Libro">
+            <End Role="Libro" EntitySet="Libro" />
+            <End Role="LibroXPrestamo" EntitySet="LibroXPrestamo" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Autor">
+          <Key>
+            <PropertyRef Name="IDAutor" />
+          </Key>
+          <Property Name="IDAutor" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="AutorXLibro" Relationship="BDBiblioSystemModel.FK_AutorXLibro_Autor" FromRole="Autor" ToRole="AutorXLibro" />
+        </EntityType>
+        <EntityType Name="AutorXLibro">
+          <Key>
+            <PropertyRef Name="IDAutorXLibro" />
+            <PropertyRef Name="IDAutor" />
+            <PropertyRef Name="IDLibro" />
+          </Key>
+          <Property Name="IDAutorXLibro" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IDAutor" Type="Int32" Nullable="false" />
+          <Property Name="IDLibro" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Autor" Relationship="BDBiblioSystemModel.FK_AutorXLibro_Autor" FromRole="AutorXLibro" ToRole="Autor" />
+          <NavigationProperty Name="Libro" Relationship="BDBiblioSystemModel.FK_AutorXLibro_Libro" FromRole="AutorXLibro" ToRole="Libro" />
+        </EntityType>
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="IDCategoria" />
+          </Key>
+          <Property Name="IDCategoria" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Libro" Relationship="BDBiblioSystemModel.FK_Ejemplar_Categoria" FromRole="Categoria" ToRole="Libro" />
+        </EntityType>
+        <EntityType Name="Editorial">
+          <Key>
+            <PropertyRef Name="IDEditorial" />
+          </Key>
+          <Property Name="IDEditorial" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Libro" Relationship="BDBiblioSystemModel.FK_Ejemplar_Editorial" FromRole="Editorial" ToRole="Libro" />
+        </EntityType>
+        <EntityType Name="Estado">
+          <Key>
+            <PropertyRef Name="IDEstado" />
+          </Key>
+          <Property Name="IDEstado" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Libro" Relationship="BDBiblioSystemModel.FK_Libro_Estado" FromRole="Estado" ToRole="Libro" />
+          <NavigationProperty Name="Socio" Relationship="BDBiblioSystemModel.FK_Socio_Estado" FromRole="Estado" ToRole="Socio" />
+          <NavigationProperty Name="Prestamo" Relationship="BDBiblioSystemModel.FK_Prestamo_Estado" FromRole="Estado" ToRole="Prestamo" />
+        </EntityType>
+        <EntityType Name="Libro">
+          <Key>
+            <PropertyRef Name="IDLibro" />
+          </Key>
+          <Property Name="IDLibro" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IDCategoria" Type="Int32" Nullable="false" />
+          <Property Name="IDEditorial" Type="Int32" Nullable="false" />
+          <Property Name="IDUbicacion" Type="Int32" Nullable="false" />
+          <Property Name="IDEstado" Type="Int32" Nullable="false" />
+          <Property Name="Titulo" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Edicion" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ISBN" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Categoria" Relationship="BDBiblioSystemModel.FK_Ejemplar_Categoria" FromRole="Libro" ToRole="Categoria" />
+          <NavigationProperty Name="Editorial" Relationship="BDBiblioSystemModel.FK_Ejemplar_Editorial" FromRole="Libro" ToRole="Editorial" />
+          <NavigationProperty Name="Estado" Relationship="BDBiblioSystemModel.FK_Libro_Estado" FromRole="Libro" ToRole="Estado" />
+          <NavigationProperty Name="Ubicacion" Relationship="BDBiblioSystemModel.FK_Ejemplar_Ubicacion" FromRole="Libro" ToRole="Ubicacion" />
+          <NavigationProperty Name="AutorXLibro" Relationship="BDBiblioSystemModel.FK_AutorXLibro_Libro" FromRole="Libro" ToRole="AutorXLibro" />
+          <NavigationProperty Name="LibroXPrestamo" Relationship="BDBiblioSystemModel.FK_LibroXPrestamo_Libro" FromRole="Libro" ToRole="LibroXPrestamo" />
+        </EntityType>
+        <EntityType Name="LibroXPrestamo">
+          <Key>
+            <PropertyRef Name="IDLibro" />
+            <PropertyRef Name="IDPrestamo" />
+          </Key>
+          <Property Name="IDLibro" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IDPrestamo" Type="Int32" Nullable="false" />
+          <Property Name="FechaDevolucion" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Prestamo" Relationship="BDBiblioSystemModel.FK_EjemplarXPrestamo_Prestamo" FromRole="LibroXPrestamo" ToRole="Prestamo" />
+          <NavigationProperty Name="Libro" Relationship="BDBiblioSystemModel.FK_LibroXPrestamo_Libro" FromRole="LibroXPrestamo" ToRole="Libro" />
+        </EntityType>
+        <EntityType Name="Localidad">
+          <Key>
+            <PropertyRef Name="IDLocalidad" />
+          </Key>
+          <Property Name="IDLocalidad" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Socio" Relationship="BDBiblioSystemModel.FK_Socio_Localidad" FromRole="Localidad" ToRole="Socio" />
+        </EntityType>
+        <EntityType Name="Prestamo">
+          <Key>
+            <PropertyRef Name="IDPrestamo" />
+          </Key>
+          <Property Name="IDPrestamo" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IDSocio" Type="Int32" Nullable="false" />
+          <Property Name="FechaPrestamo" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="LibroXPrestamo" Relationship="BDBiblioSystemModel.FK_EjemplarXPrestamo_Prestamo" FromRole="Prestamo" ToRole="LibroXPrestamo" />
+          <NavigationProperty Name="Socio" Relationship="BDBiblioSystemModel.FK_Prestamo_Socio" FromRole="Prestamo" ToRole="Socio" />
+          <Property Type="Int32" Name="IDEstado" Nullable="false" />
+          <NavigationProperty Name="Estado" Relationship="BDBiblioSystemModel.FK_Prestamo_Estado" FromRole="Prestamo" ToRole="Estado" />
+        </EntityType>
+        <EntityType Name="Socio">
+          <Key>
+            <PropertyRef Name="IDSocio" />
+          </Key>
+          <Property Name="IDSocio" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IDEstado" Type="Int32" Nullable="false" />
+          <Property Name="IDLocalidad" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="DNI" Type="Int32" />
+          <Property Name="Domicilio" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Telefono" Type="Int64" />
+          <Property Name="Correo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Estado" Relationship="BDBiblioSystemModel.FK_Socio_Estado" FromRole="Socio" ToRole="Estado" />
+          <NavigationProperty Name="Localidad" Relationship="BDBiblioSystemModel.FK_Socio_Localidad" FromRole="Socio" ToRole="Localidad" />
+          <NavigationProperty Name="Prestamo" Relationship="BDBiblioSystemModel.FK_Prestamo_Socio" FromRole="Socio" ToRole="Prestamo" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Ubicacion">
+          <Key>
+            <PropertyRef Name="IDUbicacion" />
+          </Key>
+          <Property Name="IDUbicacion" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Libro" Relationship="BDBiblioSystemModel.FK_Ejemplar_Ubicacion" FromRole="Ubicacion" ToRole="Libro" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="IDUsuario" />
+          </Key>
+          <Property Name="IDUsuario" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Contraseña" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_AutorXLibro_Autor">
+          <End Role="Autor" Type="BDBiblioSystemModel.Autor" Multiplicity="1" />
+          <End Role="AutorXLibro" Type="BDBiblioSystemModel.AutorXLibro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Autor">
+              <PropertyRef Name="IDAutor" />
+            </Principal>
+            <Dependent Role="AutorXLibro">
+              <PropertyRef Name="IDAutor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejemplar_Categoria">
+          <End Role="Categoria" Type="BDBiblioSystemModel.Categoria" Multiplicity="1" />
+          <End Role="Libro" Type="BDBiblioSystemModel.Libro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="IDCategoria" />
+            </Principal>
+            <Dependent Role="Libro">
+              <PropertyRef Name="IDCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejemplar_Editorial">
+          <End Role="Editorial" Type="BDBiblioSystemModel.Editorial" Multiplicity="1" />
+          <End Role="Libro" Type="BDBiblioSystemModel.Libro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Editorial">
+              <PropertyRef Name="IDEditorial" />
+            </Principal>
+            <Dependent Role="Libro">
+              <PropertyRef Name="IDEditorial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Libro_Estado">
+          <End Role="Estado" Type="BDBiblioSystemModel.Estado" Multiplicity="1" />
+          <End Role="Libro" Type="BDBiblioSystemModel.Libro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="IDEstado" />
+            </Principal>
+            <Dependent Role="Libro">
+              <PropertyRef Name="IDEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Socio_Estado">
+          <End Role="Estado" Type="BDBiblioSystemModel.Estado" Multiplicity="1" />
+          <End Role="Socio" Type="BDBiblioSystemModel.Socio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="IDEstado" />
+            </Principal>
+            <Dependent Role="Socio">
+              <PropertyRef Name="IDEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejemplar_Ubicacion">
+          <End Role="Ubicacion" Type="BDBiblioSystemModel.Ubicacion" Multiplicity="1" />
+          <End Role="Libro" Type="BDBiblioSystemModel.Libro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ubicacion">
+              <PropertyRef Name="IDUbicacion" />
+            </Principal>
+            <Dependent Role="Libro">
+              <PropertyRef Name="IDUbicacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EjemplarXPrestamo_Prestamo">
+          <End Role="Prestamo" Type="BDBiblioSystemModel.Prestamo" Multiplicity="1" />
+          <End Role="LibroXPrestamo" Type="BDBiblioSystemModel.LibroXPrestamo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prestamo">
+              <PropertyRef Name="IDPrestamo" />
+            </Principal>
+            <Dependent Role="LibroXPrestamo">
+              <PropertyRef Name="IDPrestamo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Socio_Localidad">
+          <End Role="Localidad" Type="BDBiblioSystemModel.Localidad" Multiplicity="1" />
+          <End Role="Socio" Type="BDBiblioSystemModel.Socio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Localidad">
+              <PropertyRef Name="IDLocalidad" />
+            </Principal>
+            <Dependent Role="Socio">
+              <PropertyRef Name="IDLocalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prestamo_Socio">
+          <End Role="Socio" Type="BDBiblioSystemModel.Socio" Multiplicity="1" />
+          <End Role="Prestamo" Type="BDBiblioSystemModel.Prestamo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Socio">
+              <PropertyRef Name="IDSocio" />
+            </Principal>
+            <Dependent Role="Prestamo">
+              <PropertyRef Name="IDSocio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AutorXLibro_Libro">
+          <End Type="BDBiblioSystemModel.Libro" Role="Libro" Multiplicity="1" />
+          <End Type="BDBiblioSystemModel.AutorXLibro" Role="AutorXLibro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Libro">
+              <PropertyRef Name="IDLibro" />
+            </Principal>
+            <Dependent Role="AutorXLibro">
+              <PropertyRef Name="IDLibro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prestamo_Estado">
+          <End Type="BDBiblioSystemModel.Estado" Role="Estado" Multiplicity="1" />
+          <End Type="BDBiblioSystemModel.Prestamo" Role="Prestamo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="IDEstado" />
+            </Principal>
+            <Dependent Role="Prestamo">
+              <PropertyRef Name="IDEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LibroXPrestamo_Libro">
+          <End Type="BDBiblioSystemModel.Libro" Role="Libro" Multiplicity="1" />
+          <End Type="BDBiblioSystemModel.LibroXPrestamo" Role="LibroXPrestamo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Libro">
+              <PropertyRef Name="IDLibro" />
+            </Principal>
+            <Dependent Role="LibroXPrestamo">
+              <PropertyRef Name="IDLibro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BDBiblioSystemModelStoreContainer" CdmEntityContainer="BDBiblioSystemEntities3">
+          <EntitySetMapping Name="Autor">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.Autor">
+              <MappingFragment StoreEntitySet="Autor">
+                <ScalarProperty Name="IDAutor" ColumnName="IDAutor" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AutorXLibro">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.AutorXLibro">
+              <MappingFragment StoreEntitySet="AutorXLibro">
+                <ScalarProperty Name="IDAutorXLibro" ColumnName="IDAutorXLibro" />
+                <ScalarProperty Name="IDAutor" ColumnName="IDAutor" />
+                <ScalarProperty Name="IDLibro" ColumnName="IDLibro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categoria">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.Categoria">
+              <MappingFragment StoreEntitySet="Categoria">
+                <ScalarProperty Name="IDCategoria" ColumnName="IDCategoria" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Editorial">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.Editorial">
+              <MappingFragment StoreEntitySet="Editorial">
+                <ScalarProperty Name="IDEditorial" ColumnName="IDEditorial" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estado">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.Estado">
+              <MappingFragment StoreEntitySet="Estado">
+                <ScalarProperty Name="IDEstado" ColumnName="IDEstado" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Libro">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.Libro">
+              <MappingFragment StoreEntitySet="Libro">
+                <ScalarProperty Name="IDLibro" ColumnName="IDLibro" />
+                <ScalarProperty Name="IDCategoria" ColumnName="IDCategoria" />
+                <ScalarProperty Name="IDEditorial" ColumnName="IDEditorial" />
+                <ScalarProperty Name="IDUbicacion" ColumnName="IDUbicacion" />
+                <ScalarProperty Name="IDEstado" ColumnName="IDEstado" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Edicion" ColumnName="Edicion" />
+                <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LibroXPrestamo">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.LibroXPrestamo">
+              <MappingFragment StoreEntitySet="LibroXPrestamo">
+                <ScalarProperty Name="IDLibro" ColumnName="IDLibro" />
+                <ScalarProperty Name="IDPrestamo" ColumnName="IDPrestamo" />
+                <ScalarProperty Name="FechaDevolucion" ColumnName="FechaDevolucion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Localidad">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.Localidad">
+              <MappingFragment StoreEntitySet="Localidad">
+                <ScalarProperty Name="IDLocalidad" ColumnName="IDLocalidad" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prestamo">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.Prestamo">
+              <MappingFragment StoreEntitySet="Prestamo">
+                <ScalarProperty Name="IDEstado" ColumnName="IDEstado" />
+                <ScalarProperty Name="IDPrestamo" ColumnName="IDPrestamo" />
+                <ScalarProperty Name="IDSocio" ColumnName="IDSocio" />
+                <ScalarProperty Name="FechaPrestamo" ColumnName="FechaPrestamo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Socio">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.Socio">
+              <MappingFragment StoreEntitySet="Socio">
+                <ScalarProperty Name="IDSocio" ColumnName="IDSocio" />
+                <ScalarProperty Name="IDEstado" ColumnName="IDEstado" />
+                <ScalarProperty Name="IDLocalidad" ColumnName="IDLocalidad" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="DNI" ColumnName="DNI" />
+                <ScalarProperty Name="Domicilio" ColumnName="Domicilio" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ubicacion">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.Ubicacion">
+              <MappingFragment StoreEntitySet="Ubicacion">
+                <ScalarProperty Name="IDUbicacion" ColumnName="IDUbicacion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="BDBiblioSystemModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
